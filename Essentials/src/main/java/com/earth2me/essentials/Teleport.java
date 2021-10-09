@@ -201,7 +201,7 @@ public class Teleport implements ITeleport {
     @Override
     @Deprecated
     public void teleportPlayer(final IUser teleportee, final Player entity, final Trade chargeFor, final TeleportCause cause) throws Exception {
-        final ITarget target = new PlayerTarget(entity);
+        final ITarget target = new LocationTarget(entity.getLocation());
         teleport(teleportee, target, chargeFor, cause);
         teleportee.sendMessage(tl("teleporting", target.getLocation().getWorld().getName(), target.getLocation().getBlockX(), target.getLocation().getBlockY(), target.getLocation().getBlockZ()));
         teleportOwner.sendMessage(tl("teleporting", target.getLocation().getWorld().getName(), target.getLocation().getBlockX(), target.getLocation().getBlockY(), target.getLocation().getBlockZ()));
